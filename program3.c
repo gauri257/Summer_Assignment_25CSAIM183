@@ -1,17 +1,18 @@
 #include <stdio.h>
 
 int main() {
-    int n;
-    long long factorial = 1;
+    int num, digit, product = 1;
 
     printf("Enter a number: ");
-    scanf("%d", &n);
+    scanf("%d", &num);
 
-    for (int i = 1; i <= n; i++) {
-        factorial = factorial * i;
+    while (num > 0) {
+        digit = num % 10;   
+        product *= digit;   
+        num /= 10;          
     }
 
-    printf("Factorial of %d = %lld\n", n, factorial);
+    printf("Product of digits = %d\n", product);
 
     return 0;
 }
