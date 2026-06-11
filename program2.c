@@ -2,19 +2,33 @@
 
 int main()
 {
-    int n, reverse = 0, digit;
+    int start, end, i, j, digit;
 
-    printf("Enter a number: ");
-    scanf("%d", &n);
+    printf("Enter starting number: ");
+    scanf("%d", &start);
 
-    while (n > 0)
+    printf("Enter ending number: ");
+    scanf("%d", &end);
+
+    for(i = start; i <= end; i++)
     {
-        digit = n % 10;
-        reverse = reverse * 10 + digit;
-        n = n / 10;
-    }
+        if(i < 2)
+            continue;
 
-    printf("Reversed number = %d", reverse);
+        digit = 1;
+
+        for(j = 2; j < i; j++)
+        {
+            if(i % j == 0)
+            {
+                digit = 0;
+                break;
+            }
+        }
+
+        if(digit == 1)
+            printf("%d ", i);
+    }
 
     return 0;
 }
