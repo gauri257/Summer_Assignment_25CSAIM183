@@ -1,21 +1,18 @@
 #include <stdio.h>
 
-int main()
-{
-    int a, b, i, gcd = 1;
+int main() {
+    int n, i;
 
-    printf("Enter two numbers: ");
-    scanf("%d %d", &a, &b);
+    printf("Enter a number: ");
+    scanf("%d", &n);
 
-    for(i = 1; i <= a && i <= b; i++)
-    {
-        if(a % i == 0 && b % i == 0)
-        {
-            gcd = i;
+    printf("Factors of %d are:\n", n);
+
+    for(i = 1; i <= n; i++) {
+        if(n % i == 0) {
+            printf("%d ", i);
         }
     }
-
-    printf("GCD = %d", gcd);
 
     return 0;
 }

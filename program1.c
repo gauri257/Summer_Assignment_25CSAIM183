@@ -1,24 +1,21 @@
-#include<stdio.h>
+#include <stdio.h>
 
 int main()
 {
-    int n, i, digit = 1;
+    int n, a = 0, b = 1, c, i;
 
+    printf("Enter number of terms: ");
     scanf("%d", &n);
 
-    for(i = 2; i < n; i++)
-    {
-        if(n % i == 0)
-        {
-            digit = 0;
-            break;
-        }
-    }
+    printf("Fibonacci Series: ");
 
-    if(digit == 1)
-        printf("Prime Number");
-    else
-        printf("Not Prime Number");
+    for(i = 1; i <= n; i++)
+    {
+        printf("%d ", a);
+        c = a + b;
+        a = b;
+        b = c;
+    }
 
     return 0;
 }

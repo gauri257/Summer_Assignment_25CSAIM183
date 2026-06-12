@@ -2,32 +2,23 @@
 
 int main()
 {
-    int start, end, i, j, digit;
+    int n, i, a = 0, b = 1, c;
 
-    printf("Enter starting number: ");
-    scanf("%d", &start);
+    scanf("%d", &n);
 
-    printf("Enter ending number: ");
-    scanf("%d", &end);
-
-    for(i = start; i <= end; i++)
+    if(n == 1)
+        printf("%d", a);
+    else if(n == 2)
+        printf("%d", b);
+    else
     {
-        if(i < 2)
-            continue;
-
-        digit = 1;
-
-        for(j = 2; j < i; j++)
+        for(i = 3; i <= n; i++)
         {
-            if(i % j == 0)
-            {
-                digit = 0;
-                break;
-            }
+            c = a + b;
+            a = b;
+            b = c;
         }
-
-        if(digit == 1)
-            printf("%d ", i);
+        printf("%d", b);
     }
 
     return 0;

@@ -1,23 +1,25 @@
 #include <stdio.h>
 
-int main()
-{
-    int a, b, max;
+int main() {
+    int n, i, j, prime, largest = -1;
 
-    printf("Enter two numbers: ");
-    scanf("%d %d", &a, &b);
+    scanf("%d", &n);
 
-    max = (a > b) ? a : b;
+    for(i = 2; i <= n; i++) {
+        prime = 1;
 
-    while (1)
-    {
-        if (max % a == 0 && max % b == 0)
-        {
-            printf("LCM = %d", max);
-            break;
+        for(j = 2; j < i; j++) {
+            if(i % j == 0) {
+                prime = 0;
+                break;
+            }
         }
-        max++;
+
+        if(prime == 1)
+            largest = i;
     }
+
+    printf("Largest Prime Number = %d", largest);
 
     return 0;
 }
