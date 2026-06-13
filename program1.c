@@ -2,20 +2,23 @@
 
 int main()
 {
-    int n, a = 0, b = 1, c, i;
+int n, i, sum = 0;
 
-    printf("Enter number of terms: ");
-    scanf("%d", &n);
+scanf("%d", &n);  
 
-    printf("Fibonacci Series: ");
+for(i = 1; i < n; i++)  
+{  
+    if(n % i == 0)  
+    {  
+        sum = sum + i;  
+    }  
+}  
 
-    for(i = 1; i <= n; i++)
-    {
-        printf("%d ", a);
-        c = a + b;
-        a = b;
-        b = c;
-    }
+if(sum == n)  
+    printf("Perfect Number");  
+else  
+    printf("Not Perfect Number");  
 
-    return 0;
+return 0;
+
 }
