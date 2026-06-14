@@ -1,31 +1,21 @@
 #include <stdio.h>
-
-int factorial(int n) {
-    int fact = 1;
-    for (int i = 1; i <= n; i++) {
-        fact *= i;
-    }
-    return fact;
-}
+#include <math.h>
 
 int main() {
-    int num, temp, digit, sum = 0;
+    long long binary;
+    int decimal = 0, i = 0, remainder;
 
-    printf("Enter a number: ");
-    scanf("%d", &num);
+    printf("Enter a binary number: ");
+    scanf("%lld", &binary);
 
-    temp = num;
-
-    while (temp > 0) {
-        digit = temp % 10;
-        sum += factorial(digit);
-        temp /= 10;
+    while (binary != 0) {
+        remainder = binary % 10;
+        decimal += remainder * pow(2, i);
+        binary /= 10;
+        i++;
     }
 
-    if (sum == num)
-        printf("%d is a Strong Number.\n", num);
-    else
-        printf("%d is not a Strong Number.\n", num);
+    printf("Decimal equivalent = %d\n", decimal);
 
     return 0;
 }

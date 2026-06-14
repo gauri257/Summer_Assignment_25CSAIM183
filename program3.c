@@ -1,18 +1,23 @@
 #include <stdio.h>
 
+int countSetBits(int n) {
+    int count = 0;
+
+    while (n > 0) {
+        count += n & 1;  // Check if the last bit is 1
+        n >>= 1;         // Right shift by 1
+    }
+
+    return count;
+}
+
 int main() {
-    int n, i;
+    int num;
 
     printf("Enter a number: ");
-    scanf("%d", &n);
+    scanf("%d", &num);
 
-    printf("Factors of %d are:\n", n);
-
-    for(i = 1; i <= n; i++) {
-        if(n % i == 0) {
-            printf("%d ", i);
-        }
-    }
+    printf("Number of set bits = %d\n", countSetBits(num));
 
     return 0;
 }

@@ -2,20 +2,17 @@
 
 int main()
 {
-    int n, i, largest = 1;
+    int x, n, i;
+    long long result = 1;
 
-    scanf("%d", &n);
+    scanf("%d %d", &x, &n);
 
-    for(i = 2; i <= n; i++)
+    for(i = 1; i <= n; i++)
     {
-        while(n % i == 0)
-        {
-            largest = i;
-            n = n / i;
-        }
+        result = result * x;
     }
 
-    printf("Largest Prime Factor = %d", largest);
+    printf("%d", result);
 
     return 0;
 }
