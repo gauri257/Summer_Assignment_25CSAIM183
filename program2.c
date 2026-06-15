@@ -1,21 +1,18 @@
 #include <stdio.h>
-#include <math.h>
 
-int main() {
-    long long binary;
-    int decimal = 0, i = 0, remainder;
+int fib(int n)
+{
+    if (n <= 1)
+        return n;
+    return fib(n - 1) + fib(n - 2);
+}
 
-    printf("Enter a binary number: ");
-    scanf("%lld", &binary);
+int main()
+{
+    int n;
+    printf("Enter n: ");
+    scanf("%d", &n);
 
-    while (binary != 0) {
-        remainder = binary % 10;
-        decimal += remainder * pow(2, i);
-        binary /= 10;
-        i++;
-    }
-
-    printf("Decimal equivalent = %d\n", decimal);
-
+    printf("Fibonacci = %d", fib(n));
     return 0;
 }

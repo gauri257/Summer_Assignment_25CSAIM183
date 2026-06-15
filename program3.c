@@ -1,23 +1,16 @@
 #include <stdio.h>
 
-int countSetBits(int n) {
-    int count = 0;
-
-    while (n > 0) {
-        count += n & 1;  // Check if the last bit is 1
-        n >>= 1;         // Right shift by 1
-    }
-
-    return count;
+int sumDigits(int n)
+{
+    if (n == 0)
+        return 0;
+    return (n % 10) + sumDigits(n / 10);
 }
 
-int main() {
-    int num;
-
-    printf("Enter a number: ");
-    scanf("%d", &num);
-
-    printf("Number of set bits = %d\n", countSetBits(num));
-
+int main()
+{
+    int n;
+    scanf("%d", &n);
+    printf("%d", sumDigits(n));
     return 0;
 }

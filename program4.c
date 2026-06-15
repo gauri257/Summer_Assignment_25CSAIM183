@@ -1,18 +1,21 @@
 #include <stdio.h>
 
+int rev = 0;
+
+int reverse(int n)
+{
+    if (n == 0)
+        return rev;
+
+    rev = rev * 10 + n % 10;
+    return reverse(n / 10);
+}
+
 int main()
 {
-    int x, n, i;
-    long long result = 1;
+    int n;
+    scanf("%d", &n);
 
-    scanf("%d %d", &x, &n);
-
-    for(i = 1; i <= n; i++)
-    {
-        result = result * x;
-    }
-
-    printf("%d", result);
-
+    printf("%d", reverse(n));
     return 0;
 }
