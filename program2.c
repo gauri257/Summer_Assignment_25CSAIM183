@@ -1,18 +1,14 @@
 #include <stdio.h>
 
-int fib(int n)
-{
-    if (n <= 1)
-        return n;
-    return fib(n - 1) + fib(n - 2);
-}
+int main() {
+    int i, j;
 
-int main()
-{
-    int n;
-    printf("Enter n: ");
-    scanf("%d", &n);
+    for(i = 1; i <= 5; i++) {
+        for(j = 1; j <= i; j++) {
+            printf("%d", j);
+        }
+        printf("\n");
+    }
 
-    printf("Fibonacci = %d", fib(n));
     return 0;
 }

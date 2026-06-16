@@ -1,16 +1,14 @@
 #include <stdio.h>
 
-int sumDigits(int n)
-{
-    if (n == 0)
-        return 0;
-    return (n % 10) + sumDigits(n / 10);
-}
+int main() {
+    int i, j;
 
-int main()
-{
-    int n;
-    scanf("%d", &n);
-    printf("%d", sumDigits(n));
+    for(i = 1; i <= 5; i++) {
+        for(j = 0; j < i; j++) {
+            printf("%c", 'A' + j);
+        }
+        printf("\n");
+    }
+
     return 0;
 }
