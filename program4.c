@@ -1,15 +1,19 @@
 #include <stdio.h>
 
-int factorial(int n)
+int isPerfect(int n)
 {
-    int i, fact = 1;
+    int i, sum = 0;
 
-    for(i = 1; i <= n; i++)
+    for(i = 1; i < n; i++)
     {
-        fact = fact * i;
+        if(n % i == 0)
+            sum += i;
     }
 
-    return fact;
+    if(sum == n)
+        return 1;
+    else
+        return 0;
 }
 
 int main()
@@ -19,7 +23,10 @@ int main()
     printf("Enter a number: ");
     scanf("%d", &num);
 
-    printf("Factorial = %d", factorial(num));
+    if(isPerfect(num))
+        printf("%d is a Perfect Number.\n", num);
+    else
+        printf("%d is Not a Perfect Number.\n", num);
 
     return 0;
 }

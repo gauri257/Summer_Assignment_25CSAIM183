@@ -1,20 +1,42 @@
 #include <stdio.h>
-int maximum(int a, int b)
+#include <math.h>
+
+int armstrong(int n)
 {
-    if (a > b)
-        return a;
+    int temp = n, rem, sum = 0, digits = 0;
+
+    while (temp != 0)
+    {
+        digits++;
+        temp /= 10;
+    }
+
+    temp = n;
+
+    while (temp != 0)
+    {
+        rem = temp % 10;
+        sum = sum + pow(rem, digits);
+        temp /= 10;
+    }
+
+    if (sum == n)
+        return 1;
     else
-        return b;
+        return 0;
 }
 
 int main()
 {
-    int num1, num2;
+    int num;
 
-    printf("Enter two numbers: ");
-    scanf("%d %d", &num1, &num2);
+    printf("Enter a number: ");
+    scanf("%d", &num);
 
-    printf("Maximum = %d", maximum(num1, num2));
+    if (armstrong(num))
+        printf("%d is an Armstrong number.", num);
+    else
+        printf("%d is not an Armstrong number.", num);
 
     return 0;
 }

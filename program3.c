@@ -1,32 +1,28 @@
 #include <stdio.h>
 
-int checkPrime(int n)
+void fibonacci(int n)
 {
-    int i;
+    int a = 0, b = 1, c;
 
-    if (n <= 1)
-        return 0;
+    printf("Fibonacci Series: ");
 
-    for (i = 2; i <= n / 2; i++)
+    for (int i = 1; i <= n; i++)
     {
-        if (n % i == 0)
-            return 0;
+        printf("%d ", a);
+        c = a + b;
+        a = b;
+        b = c;
     }
-
-    return 1;
 }
 
 int main()
 {
-    int num;
+    int n;
 
-    printf("Enter a number: ");
-    scanf("%d", &num);
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
 
-    if (checkPrime(num))
-        printf("%d is a Prime Number.", num);
-    else
-        printf("%d is Not a Prime Number.", num);
+    fibonacci(n);
 
     return 0;
 }
