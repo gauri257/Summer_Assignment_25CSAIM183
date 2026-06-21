@@ -1,14 +1,20 @@
 #include <stdio.h>
+int maximum(int a, int b)
+{
+    if (a > b)
+        return a;
+    else
+        return b;
+}
 
-int main() {
-    int i, j;
+int main()
+{
+    int num1, num2;
 
-    for(i = 5; i >= 1; i--) {
-        for(j = 1; j <= (2 * i - 1); j++) {
-            printf("*");
-        }
-        printf("\n");
-    }
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+
+    printf("Maximum = %d", maximum(num1, num2));
 
     return 0;
 }

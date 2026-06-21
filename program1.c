@@ -1,14 +1,19 @@
 #include <stdio.h>
+int sum(int a, int b)
+{
+    return a + b;
+}
 
-int main() {
-    int i, j;
+int main()
+{
+    int num1, num2, result;
 
-    for(i = 1; i <= 5; i++) {
-        for(j = 1; j <= (2 * i - 1); j++) {
-            printf("*");
-        }
-        printf("\n");
-    }
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+
+    result = sum(num1, num2);
+
+    printf("Sum = %d", result);
 
     return 0;
 }
