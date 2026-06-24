@@ -1,21 +1,37 @@
 #include <stdio.h>
 
 int main() {
-    int arr[] = {1, 2, 3, 4, 5};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int n, i, j;
+    
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
 
-    int first = arr[0];
+    int arr[n];
 
-    for (int i = 0; i < n - 1; i++) {
-        arr[i] = arr[i + 1];
+    printf("Enter array elements: ");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
     }
 
-    arr[n - 1] = first;
+    int maxFreq = 0, maxElement;
 
-    printf("Array after left rotation:\n");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
+    for(i = 0; i < n; i++) {
+        int count = 1;
+
+        for(j = i + 1; j < n; j++) {
+            if(arr[i] == arr[j]) {
+                count++;
+            }
+        }
+
+        if(count > maxFreq) {
+            maxFreq = count;
+            maxElement = arr[i];
+        }
     }
+
+    printf("Element with maximum frequency = %d\n", maxElement);
+    printf("Frequency = %d\n", maxFreq);
 
     return 0;
 }
