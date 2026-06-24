@@ -1,24 +1,21 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int arr[100];
-    int sum = 0;
-    float average;
+    int arr[] = {1, 2, 3, 4, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-    printf("Enter number of elements: ");
-    scanf("%d", &n);
+    int first = arr[0];
 
-    printf("Enter array elements:\n");
-    for(i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
-        sum += arr[i];
+    for (int i = 0; i < n - 1; i++) {
+        arr[i] = arr[i + 1];
     }
 
-    average = (float)sum / n;
+    arr[n - 1] = first;
 
-    printf("Sum = %d\n", sum);
-    printf("Average = %.2f\n", average);
+    printf("Array after left rotation:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
 
     return 0;
 }

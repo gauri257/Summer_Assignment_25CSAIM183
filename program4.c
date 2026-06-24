@@ -1,25 +1,23 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int arr[100];
-    int even = 0, odd = 0;
+    int arr[] = {1, 0, 2, 0, 3, 4, 0, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-    printf("Enter number of elements: ");
-    scanf("%d", &n);
-
-    printf("Enter array elements:\n");
-    for(i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
-
-        if(arr[i] % 2 == 0)
-            even++;
-        else
-            odd++;
+    int j = 0;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] != 0) {
+            arr[j++] = arr[i];
+        }
+    }
+    while (j < n) {
+        arr[j++] = 0;
     }
 
-    printf("Number of even elements = %d\n", even);
-    printf("Number of odd elements = %d\n", odd);
+    printf("Array after moving zeros to end:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
 
     return 0;
 }

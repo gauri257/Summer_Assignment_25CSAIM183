@@ -1,30 +1,21 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    int arr[100];
+    int arr[] = {1, 2, 3, 4, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-    printf("Enter number of elements: ");
-    scanf("%d", &n);
+    int last = arr[n - 1];
 
-    printf("Enter array elements:\n");
-    for(i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
+    for (int i = n - 1; i > 0; i--) {
+        arr[i] = arr[i - 1];
     }
 
-    int largest = arr[0];
-    int smallest = arr[0];
+    arr[0] = last;
 
-    for(i = 1; i < n; i++) {
-        if(arr[i] > largest)
-            largest = arr[i];
-
-        if(arr[i] < smallest)
-            smallest = arr[i];
+    printf("Array after right rotation:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
     }
-
-    printf("Largest element = %d\n", largest);
-    printf("Smallest element = %d\n", smallest);
 
     return 0;
 }
