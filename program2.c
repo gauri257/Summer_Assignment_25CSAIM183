@@ -1,32 +1,29 @@
 #include <stdio.h>
 
 int main() {
-    int a[100], n, i, j, min, temp;
+    int a[10][10], b[10][10], sub[10][10];
+    int r, c, i, j;
 
-    printf("Enter size of array: ");
-    scanf("%d", &n);
+    printf("Enter rows and columns: ");
+    scanf("%d%d", &r, &c);
 
-    printf("Enter array elements:\n");
-    for(i = 0; i < n; i++) {
-        scanf("%d", &a[i]);
-    }
+    printf("Enter first matrix:\n");
+    for(i = 0; i < r; i++)
+        for(j = 0; j < c; j++)
+            scanf("%d", &a[i][j]);
 
-    for(i = 0; i < n - 1; i++) {
-        min = i;
-        for(j = i + 1; j < n; j++) {
-            if(a[j] < a[min]) {
-                min = j;
-            }
+    printf("Enter second matrix:\n");
+    for(i = 0; i < r; i++)
+        for(j = 0; j < c; j++)
+            scanf("%d", &b[i][j]);
+
+    printf("Subtraction of matrices:\n");
+    for(i = 0; i < r; i++) {
+        for(j = 0; j < c; j++) {
+            sub[i][j] = a[i][j] - b[i][j];
+            printf("%d ", sub[i][j]);
         }
-
-        temp = a[i];
-        a[i] = a[min];
-        a[min] = temp;
-    }
-
-    printf("Sorted array:\n");
-    for(i = 0; i < n; i++) {
-        printf("%d ", a[i]);
+        printf("\n");
     }
 
     return 0;
