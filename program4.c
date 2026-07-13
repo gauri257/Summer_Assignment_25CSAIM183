@@ -2,24 +2,26 @@
 
 int main() {
     char str[100];
-    int freq[256] = {0};
-    int i, max = 0;
-    char ch;
+    int i, j;
 
     printf("Enter a string: ");
     scanf("%s", str);
 
-    for(i = 0; str[i] != '\0'; i++)
-        freq[(unsigned char)str[i]]++;
-
-    for(i = 0; i < 256; i++) {
-        if(freq[i] > max) {
-            max = freq[i];
-            ch = i;
+    for(i = 0; str[i] != '\0'; i++) {
+        for(j = i + 1; str[j] != '\0'; ) {
+            if(str[i] == str[j]) {
+                int k = j;
+                while(str[k] != '\0') {
+                    str[k] = str[k + 1];
+                    k++;
+                }
+            } else {
+                j++;
+            }
         }
     }
 
-    printf("Maximum Occurring Character = %c", ch);
+    printf("String after removing duplicates: %s", str);
 
     return 0;
 }

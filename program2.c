@@ -2,20 +2,19 @@
 
 int main() {
     char str[100];
-    int i, j;
+    int i, count;
 
     printf("Enter a string: ");
     scanf("%s", str);
 
     for(i = 0; str[i] != '\0'; i++) {
-        for(j = i + 1; str[j] != '\0'; j++) {
-            if(str[i] == str[j]) {
-                printf("First Repeating Character = %c", str[i]);
-                return 0;
-            }
+        count = 1;
+        while(str[i] == str[i + 1]) {
+            count++;
+            i++;
         }
+        printf("%c%d", str[i], count);
     }
 
-    printf("No Repeating Character Found");
     return 0;
 }

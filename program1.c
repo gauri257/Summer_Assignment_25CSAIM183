@@ -2,26 +2,26 @@
 #include <string.h>
 
 int main() {
-    char str[100];
-    int i, j, flag;
+    char str1[100], str2[100], temp[200];
 
-    printf("Enter a string: ");
-    scanf("%s", str);
+    printf("Enter first string: ");
+    scanf("%s", str1);
 
-    for(i = 0; str[i] != '\0'; i++) {
-        flag = 0;
-        for(j = 0; str[j] != '\0'; j++) {
-            if(i != j && str[i] == str[j]) {
-                flag = 1;
-                break;
-            }
-        }
-        if(flag == 0) {
-            printf("First Non-Repeating Character = %c", str[i]);
-            return 0;
-        }
+    printf("Enter second string: ");
+    scanf("%s", str2);
+
+    if(strlen(str1) != strlen(str2)) {
+        printf("Not Rotation");
+        return 0;
     }
 
-    printf("No Non-Repeating Character Found");
+    strcpy(temp, str1);
+    strcat(temp, str1);
+
+    if(strstr(temp, str2))
+        printf("Rotation String");
+    else
+        printf("Not Rotation");
+
     return 0;
 }
