@@ -1,29 +1,27 @@
 #include <stdio.h>
 
 int main() {
-    int a[10][10], n, i, j, flag = 1;
+    char str[100];
+    int vowels = 0, consonants = 0, i = 0;
 
-    printf("Enter order of matrix: ");
-    scanf("%d", &n);
+    printf("Enter a string: ");
+    scanf("%s", str);
 
-    printf("Enter matrix:\n");
-    for(i=0;i<n;i++)
-        for(j=0;j<n;j++)
-            scanf("%d",&a[i][j]);
+    while (str[i] != '\0') {
+        char ch = str[i];
 
-    for(i=0;i<n;i++) {
-        for(j=0;j<n;j++) {
-            if(a[i][j] != a[j][i]) {
-                flag = 0;
-                break;
-            }
+        if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
+            if (ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||
+                ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U')
+                vowels++;
+            else
+                consonants++;
         }
+        i++;
     }
 
-    if(flag)
-        printf("Symmetric Matrix");
-    else
-        printf("Not Symmetric Matrix");
+    printf("Vowels = %d\n", vowels);
+    printf("Consonants = %d", consonants);
 
     return 0;
 }

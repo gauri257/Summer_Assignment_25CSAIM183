@@ -1,22 +1,21 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
-    int a[10][10], r, c, i, j, sum;
+    char str[100], temp;
 
-    printf("Enter rows and columns: ");
-    scanf("%d%d",&r,&c);
+    printf("Enter a string: ");
+    scanf("%s", str);
 
-    printf("Enter matrix:\n");
-    for(i=0;i<r;i++)
-        for(j=0;j<c;j++)
-            scanf("%d",&a[i][j]);
+    int len = strlen(str);
 
-    for(i=0;i<r;i++) {
-        sum=0;
-        for(j=0;j<c;j++)
-            sum+=a[i][j];
-        printf("Sum of Row %d = %d\n", i+1, sum);
+    for (int i = 0; i < len / 2; i++) {
+        temp = str[i];
+        str[i] = str[len - 1 - i];
+        str[len - 1 - i] = temp;
     }
+
+    printf("Reversed String = %s", str);
 
     return 0;
 }
