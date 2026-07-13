@@ -2,19 +2,19 @@
 
 int main()
 {
-    float basic, hra, da, gross;
+    char name[50];
+    int seats;
 
-    printf("Enter Basic Salary: ");
-    scanf("%f", &basic);
+    printf("Enter Your Name: ");
+    scanf("%s", name);
 
-    hra = basic * 0.20;
-    da = basic * 0.10;
-    gross = basic + hra + da;
+    printf("Enter Number of Seats: ");
+    scanf("%d", &seats);
 
-    printf("\nBasic Salary = %.2f\n", basic);
-    printf("HRA = %.2f\n", hra);
-    printf("DA = %.2f\n", da);
-    printf("Gross Salary = %.2f\n", gross);
+    printf("\n----- Ticket Details -----\n");
+    printf("Passenger Name : %s\n", name);
+    printf("Seats Booked   : %d\n", seats);
+    printf("Booking Successful!\n");
 
     return 0;
 }

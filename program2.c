@@ -2,23 +2,58 @@
 
 int main()
 {
-    int id;
-    char name[50];
-    float salary;
+    int accountNo, choice;
+    float balance = 5000, amount;
 
-    printf("Enter Employee ID: ");
-    scanf("%d", &id);
+    printf("Enter Account Number: ");
+    scanf("%d", &accountNo);
 
-    printf("Enter Employee Name: ");
-    scanf("%s", name);
+    do
+    {
+        printf("\n1. Check Balance\n");
+        printf("2. Deposit\n");
+        printf("3. Withdraw\n");
+        printf("4. Exit\n");
 
-    printf("Enter Salary: ");
-    scanf("%f", &salary);
+        printf("Enter Choice: ");
+        scanf("%d", &choice);
 
-    printf("\n--- Employee Details ---\n");
-    printf("ID: %d\n", id);
-    printf("Name: %s\n", name);
-    printf("Salary: %.2f\n", salary);
+        switch(choice)
+        {
+            case 1:
+                printf("Balance = %.2f\n", balance);
+                break;
+
+            case 2:
+                printf("Enter Deposit Amount: ");
+                scanf("%f", &amount);
+                balance += amount;
+                break;
+
+            case 3:
+                printf("Enter Withdraw Amount: ");
+                scanf("%f", &amount);
+
+                if(amount <= balance)
+                {
+                    balance -= amount;
+                    printf("Withdrawal Successful\n");
+                }
+                else
+                {
+                    printf("Insufficient Balance\n");
+                }
+                break;
+
+            case 4:
+                printf("Thank You!\n");
+                break;
+
+            default:
+                printf("Invalid Choice\n");
+        }
+
+    } while(choice != 4);
 
     return 0;
 }

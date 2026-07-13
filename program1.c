@@ -2,23 +2,23 @@
 
 int main()
 {
-    int roll;
-    char name[50];
-    float marks;
+    int bookId;
+    char bookName[50];
+    char author[50];
 
-    printf("Enter Roll Number: ");
-    scanf("%d", &roll);
+    printf("Enter Book ID: ");
+    scanf("%d", &bookId);
 
-    printf("Enter Name: ");
-    scanf("%s", name);
+    printf("Enter Book Name: ");
+    scanf("%s", bookName);
 
-    printf("Enter Marks: ");
-    scanf("%f", &marks);
+    printf("Enter Author Name: ");
+    scanf("%s", author);
 
-    printf("\n--- Student Record ---\n");
-    printf("Roll Number: %d\n", roll);
-    printf("Name: %s\n", name);
-    printf("Marks: %.2f\n", marks);
+    printf("\n----- Library Record -----\n");
+    printf("Book ID    : %d\n", bookId);
+    printf("Book Name  : %s\n", bookName);
+    printf("Author     : %s\n", author);
 
     return 0;
 }
