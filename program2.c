@@ -1,19 +1,24 @@
 #include <stdio.h>
 
 int main() {
-    char str[100];
-    int i, count;
+    char str1[100], str2[100];
+    int i, j;
 
-    printf("Enter a string: ");
-    scanf("%s", str);
+    printf("Enter first string: ");
+    scanf("%s", str1);
 
-    for(i = 0; str[i] != '\0'; i++) {
-        count = 1;
-        while(str[i] == str[i + 1]) {
-            count++;
-            i++;
+    printf("Enter second string: ");
+    scanf("%s", str2);
+
+    printf("Common Characters: ");
+
+    for(i = 0; str1[i] != '\0'; i++) {
+        for(j = 0; str2[j] != '\0'; j++) {
+            if(str1[i] == str2[j]) {
+                printf("%c ", str1[i]);
+                break;
+            }
         }
-        printf("%c%d", str[i], count);
     }
 
     return 0;

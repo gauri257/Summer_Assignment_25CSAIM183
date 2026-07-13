@@ -2,32 +2,29 @@
 #include <string.h>
 
 int main() {
-    char str[200], longest[100], word[100];
-    int i = 0, j = 0, max = 0;
+    char name[10][50], temp[50];
+    int n, i, j;
 
-    printf("Enter a sentence: ");
-    fgets(str, sizeof(str), stdin);
+    printf("Enter number of names: ");
+    scanf("%d", &n);
 
-    while(1) {
-        if(str[i] == ' ' || str[i] == '\0' || str[i] == '\n') {
-            word[j] = '\0';
+    printf("Enter names:\n");
+    for(i = 0; i < n; i++)
+        scanf("%s", name[i]);
 
-            if(j > max) {
-                max = j;
-                strcpy(longest, word);
+    for(i = 0; i < n - 1; i++) {
+        for(j = i + 1; j < n; j++) {
+            if(strcmp(name[i], name[j]) > 0) {
+                strcpy(temp, name[i]);
+                strcpy(name[i], name[j]);
+                strcpy(name[j], temp);
             }
-
-            j = 0;
-
-            if(str[i] == '\0' || str[i] == '\n')
-                break;
-        } else {
-            word[j++] = str[i];
         }
-        i++;
     }
 
-    printf("Longest Word = %s", longest);
+    printf("Names in Alphabetical Order:\n");
+    for(i = 0; i < n; i++)
+        printf("%s\n", name[i]);
 
     return 0;
 }
