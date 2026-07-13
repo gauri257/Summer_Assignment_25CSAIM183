@@ -1,30 +1,29 @@
 #include <stdio.h>
 
 int main() {
-    int a[10][10], b[10][10], sub[10][10];
-    int r, c, i, j;
+    int a[10][10], n, i, j, flag = 1;
 
-    printf("Enter rows and columns: ");
-    scanf("%d%d", &r, &c);
+    printf("Enter order of matrix: ");
+    scanf("%d", &n);
 
-    printf("Enter first matrix:\n");
-    for(i = 0; i < r; i++)
-        for(j = 0; j < c; j++)
-            scanf("%d", &a[i][j]);
+    printf("Enter matrix:\n");
+    for(i=0;i<n;i++)
+        for(j=0;j<n;j++)
+            scanf("%d",&a[i][j]);
 
-    printf("Enter second matrix:\n");
-    for(i = 0; i < r; i++)
-        for(j = 0; j < c; j++)
-            scanf("%d", &b[i][j]);
-
-    printf("Subtraction of matrices:\n");
-    for(i = 0; i < r; i++) {
-        for(j = 0; j < c; j++) {
-            sub[i][j] = a[i][j] - b[i][j];
-            printf("%d ", sub[i][j]);
+    for(i=0;i<n;i++) {
+        for(j=0;j<n;j++) {
+            if(a[i][j] != a[j][i]) {
+                flag = 0;
+                break;
+            }
         }
-        printf("\n");
     }
+
+    if(flag)
+        printf("Symmetric Matrix");
+    else
+        printf("Not Symmetric Matrix");
 
     return 0;
 }
