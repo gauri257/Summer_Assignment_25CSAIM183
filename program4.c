@@ -2,33 +2,28 @@
 
 int main()
 {
-    int score = 0, ans;
+    char name[50];
+    int m1, m2, m3, total;
+    float percentage;
 
-    printf("Q1. Capital of India?\n");
-    printf("1. Delhi\n2. Mumbai\n3. Kolkata\n4. Chennai\n");
-    scanf("%d", &ans);
-    if (ans == 1)
-        score++;
+    printf("Enter Student Name: ");
+    scanf("%s", name);
 
-    printf("\nQ2. 5 + 7 = ?\n");
-    printf("1. 10\n2. 12\n3. 15\n4. 14\n");
-    scanf("%d", &ans);
-    if (ans == 2)
-        score++;
+    printf("Enter Marks of 3 Subjects: ");
+    scanf("%d%d%d", &m1, &m2, &m3);
 
-    printf("\nQ3. C language was developed by?\n");
-    printf("1. Dennis Ritchie\n2. James Gosling\n3. Bjarne Stroustrup\n4. Guido van Rossum\n");
-    scanf("%d", &ans);
-    if (ans == 1)
-        score++;
+    total = m1 + m2 + m3;
+    percentage = total / 3.0;
 
-    printf("\nQ4. 2 * 6 = ?\n");
-    printf("1. 10\n2. 11\n3. 12\n4. 14\n");
-    scanf("%d", &ans);
-    if (ans == 3)
-        score++;
+    printf("\n------ Marksheet ------\n");
+    printf("Name : %s\n", name);
+    printf("Total Marks : %d\n", total);
+    printf("Percentage : %.2f%%\n", percentage);
 
-    printf("\nYour Score = %d/4\n", score);
+    if (percentage >= 33)
+        printf("Result : Pass\n");
+    else
+        printf("Result : Fail\n");
 
     return 0;
 }

@@ -2,15 +2,23 @@
 
 int main()
 {
-    int age;
+    int id;
+    char name[50];
+    float salary;
 
-    printf("Enter your age: ");
-    scanf("%d", &age);
+    printf("Enter Employee ID: ");
+    scanf("%d", &id);
 
-    if (age >= 18)
-        printf("Eligible for Voting");
-    else
-        printf("Not Eligible for Voting");
+    printf("Enter Employee Name: ");
+    scanf("%s", name);
+
+    printf("Enter Salary: ");
+    scanf("%f", &salary);
+
+    printf("\n--- Employee Details ---\n");
+    printf("ID: %d\n", id);
+    printf("Name: %s\n", name);
+    printf("Salary: %.2f\n", salary);
 
     return 0;
 }
