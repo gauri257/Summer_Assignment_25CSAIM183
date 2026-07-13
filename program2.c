@@ -1,59 +1,83 @@
 #include <stdio.h>
 
-int main()
-{
-    int accountNo, choice;
-    float balance = 5000, amount;
+int main() {
+    int arr[100], n, i, choice, pos, value;
 
-    printf("Enter Account Number: ");
-    scanf("%d", &accountNo);
+    printf("Enter size of array: ");
+    scanf("%d", &n);
 
-    do
-    {
-        printf("\n1. Check Balance\n");
-        printf("2. Deposit\n");
-        printf("3. Withdraw\n");
-        printf("4. Exit\n");
+    printf("Enter %d elements:\n", n);
+    for (i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
 
-        printf("Enter Choice: ");
+    do {
+        printf("\n--- Array Menu ---\n");
+        printf("1. Display Array\n");
+        printf("2. Insert Element\n");
+        printf("3. Delete Element\n");
+        printf("4. Search Element\n");
+        printf("5. Exit\n");
+        printf("Enter choice: ");
         scanf("%d", &choice);
 
-        switch(choice)
-        {
+        switch (choice) {
             case 1:
-                printf("Balance = %.2f\n", balance);
+                printf("Array: ");
+                for (i = 0; i < n; i++)
+                    printf("%d ", arr[i]);
+                printf("\n");
                 break;
 
             case 2:
-                printf("Enter Deposit Amount: ");
-                scanf("%f", &amount);
-                balance += amount;
+                printf("Enter position and value: ");
+                scanf("%d %d", &pos, &value);
+
+                if (pos >= 1 && pos <= n + 1) {
+                    for (i = n; i >= pos; i--)
+                        arr[i] = arr[i - 1];
+                    arr[pos - 1] = value;
+                    n++;
+                } else {
+                    printf("Invalid position.\n");
+                }
                 break;
 
             case 3:
-                printf("Enter Withdraw Amount: ");
-                scanf("%f", &amount);
+                printf("Enter position to delete: ");
+                scanf("%d", &pos);
 
-                if(amount <= balance)
-                {
-                    balance -= amount;
-                    printf("Withdrawal Successful\n");
-                }
-                else
-                {
-                    printf("Insufficient Balance\n");
+                if (pos >= 1 && pos <= n) {
+                    for (i = pos - 1; i < n - 1; i++)
+                        arr[i] = arr[i + 1];
+                    n--;
+                } else {
+                    printf("Invalid position.\n");
                 }
                 break;
 
             case 4:
-                printf("Thank You!\n");
+                printf("Enter value to search: ");
+                scanf("%d", &value);
+
+                for (i = 0; i < n; i++) {
+                    if (arr[i] == value) {
+                        printf("Found at position %d\n", i + 1);
+                        break;
+                    }
+                }
+                if (i == n)
+                    printf("Not Found\n");
+                break;
+
+            case 5:
+                printf("Exiting...\n");
                 break;
 
             default:
-                printf("Invalid Choice\n");
+                printf("Invalid choice.\n");
         }
 
-    } while(choice != 4);
+    } while (choice != 5);
 
     return 0;
 }
