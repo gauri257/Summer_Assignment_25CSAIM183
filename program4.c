@@ -2,19 +2,24 @@
 
 int main() {
     char str[100];
-    int i, j = 0;
+    int freq[256] = {0};
+    int i, max = 0;
+    char ch;
 
     printf("Enter a string: ");
-    fgets(str, sizeof(str), stdin);
+    scanf("%s", str);
 
-    for(i = 0; str[i] != '\0'; i++) {
-        if(str[i] != ' ')
-            str[j++] = str[i];
+    for(i = 0; str[i] != '\0'; i++)
+        freq[(unsigned char)str[i]]++;
+
+    for(i = 0; i < 256; i++) {
+        if(freq[i] > max) {
+            max = freq[i];
+            ch = i;
+        }
     }
 
-    str[j] = '\0';
-
-    printf("String after removing spaces: %s", str);
+    printf("Maximum Occurring Character = %c", ch);
 
     return 0;
 }
