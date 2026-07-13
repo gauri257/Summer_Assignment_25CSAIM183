@@ -1,65 +1,37 @@
 #include <stdio.h>
-#include <string.h>
+
+struct Employee {
+    int id;
+    char name[50];
+    float salary;
+};
 
 int main() {
-    char str1[100], str2[100];
-    int choice;
+    struct Employee emp[100];
+    int n, i;
 
-    printf("Enter first string: ");
-    scanf("%s", str1);
+    printf("Enter number of employees: ");
+    scanf("%d", &n);
 
-    do {
-        printf("\n--- String Menu ---\n");
-        printf("1. Find Length\n");
-        printf("2. Copy String\n");
-        printf("3. Concatenate String\n");
-        printf("4. Compare Strings\n");
-        printf("5. Reverse String\n");
-        printf("6. Exit\n");
-        printf("Enter choice: ");
-        scanf("%d", &choice);
+    for(i = 0; i < n; i++) {
+        printf("\nEmployee %d\n", i + 1);
 
-        switch (choice) {
-            case 1:
-                printf("Length = %lu\n", strlen(str1));
-                break;
+        printf("Employee ID: ");
+        scanf("%d", &emp[i].id);
 
-            case 2:
-                strcpy(str2, str1);
-                printf("Copied String = %s\n", str2);
-                break;
+        printf("Employee Name: ");
+        scanf("%s", emp[i].name);
 
-            case 3:
-                printf("Enter second string: ");
-                scanf("%s", str2);
-                strcat(str1, str2);
-                printf("Concatenated String = %s\n", str1);
-                break;
+        printf("Salary: ");
+        scanf("%f", &emp[i].salary);
+    }
 
-            case 4:
-                printf("Enter second string: ");
-                scanf("%s", str2);
+    printf("\n--- Employee Records ---\n");
+    printf("ID\tName\tSalary\n");
 
-                if (strcmp(str1, str2) == 0)
-                    printf("Strings are Equal\n");
-                else
-                    printf("Strings are Not Equal\n");
-                break;
-
-            case 5:
-                strrev(str1);
-                printf("Reversed String = %s\n", str1);
-                break;
-
-            case 6:
-                printf("Exiting...\n");
-                break;
-
-            default:
-                printf("Invalid choice.\n");
-        }
-
-    } while (choice != 6);
+    for(i = 0; i < n; i++) {
+        printf("%d\t%s\t%.2f\n", emp[i].id, emp[i].name, emp[i].salary);
+    }
 
     return 0;
 }

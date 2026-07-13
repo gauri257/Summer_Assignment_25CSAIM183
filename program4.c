@@ -1,61 +1,41 @@
 #include <stdio.h>
 
-struct Item {
-    int id;
+struct Student {
+    int roll;
     char name[50];
-    int quantity;
-    float price;
+    float marks;
 };
 
+void display(struct Student s[], int n) {
+    int i;
+    printf("\nRoll\tName\tMarks\n");
+
+    for(i = 0; i < n; i++) {
+        printf("%d\t%s\t%.2f\n", s[i].roll, s[i].name, s[i].marks);
+    }
+}
+
 int main() {
-    struct Item item[100];
-    int n = 0, choice, i;
+    struct Student s[100];
+    int n, i;
 
-    do {
-        printf("\n--- Inventory Menu ---\n");
-        printf("1. Add Item\n");
-        printf("2. Display Items\n");
-        printf("3. Exit\n");
-        printf("Enter choice: ");
-        scanf("%d", &choice);
+    printf("Enter number of students: ");
+    scanf("%d", &n);
 
-        switch (choice) {
-            case 1:
-                printf("Enter Item ID: ");
-                scanf("%d", &item[n].id);
+    for(i = 0; i < n; i++) {
+        printf("\nStudent %d\n", i + 1);
 
-                printf("Enter Item Name: ");
-                scanf("%s", item[n].name);
+        printf("Roll No: ");
+        scanf("%d", &s[i].roll);
 
-                printf("Enter Quantity: ");
-                scanf("%d", &item[n].quantity);
+        printf("Name: ");
+        scanf("%s", s[i].name);
 
-                printf("Enter Price: ");
-                scanf("%f", &item[n].price);
+        printf("Marks: ");
+        scanf("%f", &s[i].marks);
+    }
 
-                n++;
-                break;
-
-            case 2:
-                printf("\nID\tName\tQty\tPrice\n");
-                for (i = 0; i < n; i++) {
-                    printf("%d\t%s\t%d\t%.2f\n",
-                           item[i].id,
-                           item[i].name,
-                           item[i].quantity,
-                           item[i].price);
-                }
-                break;
-
-            case 3:
-                printf("Exiting...\n");
-                break;
-
-            default:
-                printf("Invalid choice.\n");
-        }
-
-    } while (choice != 3);
+    display(s, n);
 
     return 0;
 }

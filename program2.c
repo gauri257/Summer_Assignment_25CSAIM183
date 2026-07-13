@@ -1,83 +1,37 @@
 #include <stdio.h>
 
-int main() {
-    int arr[100], n, i, choice, pos, value;
+struct Book {
+    int id;
+    char name[50];
+    char author[50];
+};
 
-    printf("Enter size of array: ");
+int main() {
+    struct Book b[100];
+    int n, i;
+
+    printf("Enter number of books: ");
     scanf("%d", &n);
 
-    printf("Enter %d elements:\n", n);
-    for (i = 0; i < n; i++)
-        scanf("%d", &arr[i]);
+    for(i = 0; i < n; i++) {
+        printf("\nBook %d\n", i + 1);
 
-    do {
-        printf("\n--- Array Menu ---\n");
-        printf("1. Display Array\n");
-        printf("2. Insert Element\n");
-        printf("3. Delete Element\n");
-        printf("4. Search Element\n");
-        printf("5. Exit\n");
-        printf("Enter choice: ");
-        scanf("%d", &choice);
+        printf("Book ID: ");
+        scanf("%d", &b[i].id);
 
-        switch (choice) {
-            case 1:
-                printf("Array: ");
-                for (i = 0; i < n; i++)
-                    printf("%d ", arr[i]);
-                printf("\n");
-                break;
+        printf("Book Name: ");
+        scanf("%s", b[i].name);
 
-            case 2:
-                printf("Enter position and value: ");
-                scanf("%d %d", &pos, &value);
+        printf("Author Name: ");
+        scanf("%s", b[i].author);
+    }
 
-                if (pos >= 1 && pos <= n + 1) {
-                    for (i = n; i >= pos; i--)
-                        arr[i] = arr[i - 1];
-                    arr[pos - 1] = value;
-                    n++;
-                } else {
-                    printf("Invalid position.\n");
-                }
-                break;
+    printf("\n--- Library Records ---\n");
+    printf("ID\tBook\tAuthor\n");
 
-            case 3:
-                printf("Enter position to delete: ");
-                scanf("%d", &pos);
-
-                if (pos >= 1 && pos <= n) {
-                    for (i = pos - 1; i < n - 1; i++)
-                        arr[i] = arr[i + 1];
-                    n--;
-                } else {
-                    printf("Invalid position.\n");
-                }
-                break;
-
-            case 4:
-                printf("Enter value to search: ");
-                scanf("%d", &value);
-
-                for (i = 0; i < n; i++) {
-                    if (arr[i] == value) {
-                        printf("Found at position %d\n", i + 1);
-                        break;
-                    }
-                }
-                if (i == n)
-                    printf("Not Found\n");
-                break;
-
-            case 5:
-                printf("Exiting...\n");
-                break;
-
-            default:
-                printf("Invalid choice.\n");
-        }
-
-    } while (choice != 5);
+    for(i = 0; i < n; i++) {
+        printf("%d\t%s\t%s\n", b[i].id, b[i].name, b[i].author);
+    }
 
     return 0;
 }
