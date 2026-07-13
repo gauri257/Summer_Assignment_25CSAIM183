@@ -1,42 +1,28 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-int main() {
-    int a[50], b[50], c[100];
-    int n1, n2, i, j, k = 0;
+int main()
+{
+    int number, guess;
 
-    printf("Enter size of first array: ");
-    scanf("%d", &n1);
+    srand(time(0));
+    number = rand() % 100 + 1;
 
-    printf("Enter elements of first sorted array:\n");
-    for(i = 0; i < n1; i++)
-        scanf("%d", &a[i]);
+    printf("Guess a number between 1 and 100:\n");
 
-    printf("Enter size of second array: ");
-    scanf("%d", &n2);
+    do
+    {
+        scanf("%d", &guess);
 
-    printf("Enter elements of second sorted array:\n");
-    for(i = 0; i < n2; i++)
-        scanf("%d", &b[i]);
-
-    i = 0;
-    j = 0;
-
-    while(i < n1 && j < n2) {
-        if(a[i] < b[j])
-            c[k++] = a[i++];
+        if (guess > number)
+            printf("Too High! Try Again.\n");
+        else if (guess < number)
+            printf("Too Low! Try Again.\n");
         else
-            c[k++] = b[j++];
-    }
+            printf("You guessed the correct number.\n");
 
-    while(i < n1)
-        c[k++] = a[i++];
-
-    while(j < n2)
-        c[k++] = b[j++];
-
-    printf("Merged Array: ");
-    for(i = 0; i < k; i++)
-        printf("%d ", c[i]);
+    } while (guess != number);
 
     return 0;
 }

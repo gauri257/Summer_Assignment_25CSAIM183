@@ -1,30 +1,58 @@
 #include <stdio.h>
-#include <string.h>
 
-int main() {
-    char name[10][50], temp[50];
-    int n, i, j;
+int main()
+{
+    int choice;
+    float balance = 1000, amount;
 
-    printf("Enter number of names: ");
-    scanf("%d", &n);
+    do
+    {
+        printf("\nATM MENU\n");
+        printf("1. Check Balance\n");
+        printf("2. Deposit\n");
+        printf("3. Withdraw\n");
+        printf("4. Exit\n");
 
-    printf("Enter names:\n");
-    for(i = 0; i < n; i++)
-        scanf("%s", name[i]);
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
 
-    for(i = 0; i < n - 1; i++) {
-        for(j = i + 1; j < n; j++) {
-            if(strcmp(name[i], name[j]) > 0) {
-                strcpy(temp, name[i]);
-                strcpy(name[i], name[j]);
-                strcpy(name[j], temp);
+        switch (choice)
+        {
+        case 1:
+            printf("Balance = %.2f\n", balance);
+            break;
+
+        case 2:
+            printf("Enter deposit amount: ");
+            scanf("%f", &amount);
+            balance += amount;
+            printf("Deposit Successful\n");
+            break;
+
+        case 3:
+            printf("Enter withdrawal amount: ");
+            scanf("%f", &amount);
+
+            if (amount <= balance)
+            {
+                balance -= amount;
+                printf("Withdrawal Successful\n");
             }
-        }
-    }
+            else
+            {
+                printf("Insufficient Balance\n");
+            }
+            break;
 
-    printf("Names in Alphabetical Order:\n");
-    for(i = 0; i < n; i++)
-        printf("%s\n", name[i]);
+        case 4:
+            printf("Thank You!\n");
+            break;
+
+        default:
+            printf("Invalid Choice\n");
+        }
+
+    } while (choice != 4);
 
     return 0;
 }

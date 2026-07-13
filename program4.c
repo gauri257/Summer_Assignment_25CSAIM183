@@ -1,30 +1,34 @@
 #include <stdio.h>
-#include <string.h>
 
-int main() {
-    char word[10][50], temp[50];
-    int n, i, j;
+int main()
+{
+    int score = 0, ans;
 
-    printf("Enter number of words: ");
-    scanf("%d", &n);
+    printf("Q1. Capital of India?\n");
+    printf("1. Delhi\n2. Mumbai\n3. Kolkata\n4. Chennai\n");
+    scanf("%d", &ans);
+    if (ans == 1)
+        score++;
 
-    printf("Enter words:\n");
-    for(i = 0; i < n; i++)
-        scanf("%s", word[i]);
+    printf("\nQ2. 5 + 7 = ?\n");
+    printf("1. 10\n2. 12\n3. 15\n4. 14\n");
+    scanf("%d", &ans);
+    if (ans == 2)
+        score++;
 
-    for(i = 0; i < n - 1; i++) {
-        for(j = i + 1; j < n; j++) {
-            if(strlen(word[i]) > strlen(word[j])) {
-                strcpy(temp, word[i]);
-                strcpy(word[i], word[j]);
-                strcpy(word[j], temp);
-            }
-        }
-    }
+    printf("\nQ3. C language was developed by?\n");
+    printf("1. Dennis Ritchie\n2. James Gosling\n3. Bjarne Stroustrup\n4. Guido van Rossum\n");
+    scanf("%d", &ans);
+    if (ans == 1)
+        score++;
 
-    printf("Words sorted by length:\n");
-    for(i = 0; i < n; i++)
-        printf("%s\n", word[i]);
+    printf("\nQ4. 2 * 6 = ?\n");
+    printf("1. 10\n2. 11\n3. 12\n4. 14\n");
+    scanf("%d", &ans);
+    if (ans == 3)
+        score++;
+
+    printf("\nYour Score = %d/4\n", score);
 
     return 0;
 }

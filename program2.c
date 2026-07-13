@@ -1,25 +1,16 @@
 #include <stdio.h>
 
-int main() {
-    char str1[100], str2[100];
-    int i, j;
+int main()
+{
+    int age;
 
-    printf("Enter first string: ");
-    scanf("%s", str1);
+    printf("Enter your age: ");
+    scanf("%d", &age);
 
-    printf("Enter second string: ");
-    scanf("%s", str2);
-
-    printf("Common Characters: ");
-
-    for(i = 0; str1[i] != '\0'; i++) {
-        for(j = 0; str2[j] != '\0'; j++) {
-            if(str1[i] == str2[j]) {
-                printf("%c ", str1[i]);
-                break;
-            }
-        }
-    }
+    if (age >= 18)
+        printf("Eligible for Voting");
+    else
+        printf("Not Eligible for Voting");
 
     return 0;
 }
