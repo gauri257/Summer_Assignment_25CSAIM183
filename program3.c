@@ -1,21 +1,21 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
-    char str[100], temp;
+    char str[100], ch;
+    int i, count = 0;
 
     printf("Enter a string: ");
-    scanf("%s", str);
+    fgets(str, sizeof(str), stdin);
 
-    int len = strlen(str);
+    printf("Enter character: ");
+    scanf("%c", &ch);
 
-    for (int i = 0; i < len / 2; i++) {
-        temp = str[i];
-        str[i] = str[len - 1 - i];
-        str[len - 1 - i] = temp;
+    for(i = 0; str[i] != '\0'; i++) {
+        if(str[i] == ch)
+            count++;
     }
 
-    printf("Reversed String = %s", str);
+    printf("Frequency of '%c' = %d", ch, count);
 
     return 0;
 }
